@@ -1,3 +1,7 @@
+plugins {
+  id "org.sonarqube" version "2.6.2"
+}
+
 buildscript {
 	ext {
 		springBootVersion = '2.0.5.RELEASE'
