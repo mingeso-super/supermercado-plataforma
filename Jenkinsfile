@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                gradlew('test')
+                sh "./gradlew test"
             }
             post {
                 always {
