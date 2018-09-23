@@ -11,11 +11,11 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                sh "./gradlew test"
+                sh './gradlew test'
             }
             post {
                 always {
-                    junit '**/build/test-results/test/TEST-*.xml'
+                    junit 'build/test-results/test/TEST-*.xml'
                 }
             }
         }
