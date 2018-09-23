@@ -7,7 +7,6 @@ pipeline {
                 gradlew('clean', 'classes')
                 gradlew('compileJava')
                 gradlew('compileTest')
-                gradlew('build')
             }
         }
         stage('Unit Tests') {
