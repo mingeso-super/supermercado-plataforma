@@ -18,7 +18,7 @@ import cl.mingeso.supermercado.exceptions.ProductNotFound;
 import cl.mingeso.supermercado.models.Product;
 import cl.mingeso.supermercado.repositories.ProductRepository;
 
-@RestController("api/v1/products")
+@RestController("/api/v1/products")
 public class ProductsApi {
 
     @Autowired
