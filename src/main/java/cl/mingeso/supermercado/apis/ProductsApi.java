@@ -1,6 +1,8 @@
 package cl.mingeso.supermercado.apis;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,8 +71,16 @@ public class ProductsApi {
     public void deleteProduct(@PathVariable long id) {
         productRepository.deleteById(id);
     }
-    
 
+    @GetMapping("/all")
+    public List<Product> getAll() {
+        List<Product> all = new ArrayList<>();
 
+        productRepository
+            .findAll()
+            .forEach(product -> all.add(product));
+
+        return all;
+    }
 
 }
