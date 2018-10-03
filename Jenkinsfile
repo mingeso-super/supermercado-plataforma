@@ -15,7 +15,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'build/reports/**/*.xml'
+                    junit 'build/test-results/**/*.xml'
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                     }
                     post {
                         always {
-                            junit '**/build/test-results/integrationTest/TEST-*.xml'
+                            junit 'build/test-results/integrationTest/TEST-*.xml'
                         }
                     }
                 }
