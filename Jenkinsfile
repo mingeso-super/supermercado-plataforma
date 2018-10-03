@@ -34,10 +34,10 @@ pipeline {
         stage('Promotion') {
             steps {
                 gradlew('bootWar')
-                sh 'sudo cp build/libs/supermercado-0.0.1-SNAPSHOT.war /opt/tomcat9/webapps/'
+                sh 'sudo cp build/libs/supermercado-0.0.1-SNAPSHOT.war /opt/tomcat9/webapps/supermercado.war'
             }
         }
-       
+        
     }
     post {
         failure {
