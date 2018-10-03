@@ -19,30 +19,16 @@ pipeline {
                 }
             }
         }
-        stage('Long-running Verification') {
+        stage('Code Analysis') {
             
-            parallel {
-                stage('Integration Tests') {
-                    steps {
-                        gradlew('integrationTest')
-                    }
-                    post {
-                        always {
-                            junit 'build/test-results/integrationTest/TEST-*.xml'
-                        }
-                    }
-                }
-                stage('Code Analysis') {
-                    steps {
-                        gradlew('sonarqube')
-                    }
-                }
+            steps {
+                gradlew('sonarqube')
             }
         }
         stage('Assemble') {
             steps {
                 gradlew('assemble')
-                stash includes: '**/build/libs/*.war', name: 'app'
+                stash includes: '**/build/libs/*.jar', name: 'app'
             }
         }
         stage('Promotion') {
